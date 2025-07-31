@@ -62,6 +62,9 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+
+        firtRun()
+
         binding.bottomNavmain.setOnItemSelectedListener {
 
             when(it.itemId){
@@ -93,6 +96,14 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace( R.id.frame_main_container , fragment)
         transaction.commit()
+
+    }
+
+    fun firtRun(){
+
+        //set on explore and firstRun
+        replaceFragment(Fragment_Explore())
+        binding.bottomNavmain.selectedItemId = R.id.menu_Explore
 
     }
 
