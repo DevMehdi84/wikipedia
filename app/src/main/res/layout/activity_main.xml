@@ -11,7 +11,8 @@
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/main"
-    android:fitsSystemWindows="true"
+    android:layout_marginTop="25dp"
+    android:fitsSystemWindows="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -21,7 +22,6 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarmain"
             android:layout_height="?attr/actionBarSize"
@@ -29,6 +29,12 @@
             android:layout_width="match_parent" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:menu="@menu/menu_bottom_navigation"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
