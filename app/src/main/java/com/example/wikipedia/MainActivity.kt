@@ -89,6 +89,9 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+//        Avoid duplicate selection in bottom navigation
+        binding.bottomNavmain.setOnItemReselectedListener {}
+
     }
 
     fun replaceFragment(fragment: Fragment){
