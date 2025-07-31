@@ -1,5 +1,9 @@
 <resources>
-    <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+
+        <item name="android:statusBarColor">@color/md_theme_onPrimaryContainer</item>
+        <item name="android:windowLightStatusBar">false</item>
+
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -49,5 +53,11 @@
 
         <item name="android:fontFamily">@font/primary_regular</item>
         <item name="fontFamily">@font/primary_regular</item>
+
+
+
+
+
+
     </style>
 </resources>

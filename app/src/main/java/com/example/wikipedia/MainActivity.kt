@@ -1,10 +1,11 @@
 package com.example.wikipedia
 
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.core.content.ContextCompat
 import com.example.wikipedia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
-
+        setSupportActionBar(binding.toolbarmain)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.md_theme_primary)
     }
 }
