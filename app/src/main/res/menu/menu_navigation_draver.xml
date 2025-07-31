@@ -12,6 +12,11 @@
         android:title="be a photographer"/>
 
     <item
+        android:icon="@drawable/ic_translate"
+        android:id="@+id/menu_Translator"
+        android:title="be a Translator"/>
+
+    <item
         android:icon="@drawable/ic_video_maker"
         android:id="@+id/menu_video_maker"
         android:title="be a video maker"/>
