@@ -30,7 +30,16 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
+    <FrameLayout
+        android:id="@+id/frame_main_container"
+        android:layout_marginBottom="100dp"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navmain"
         app:menu="@menu/menu_bottom_navigation"
         android:layout_gravity="bottom"
         android:layout_width="match_parent"

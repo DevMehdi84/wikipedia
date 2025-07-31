@@ -5,7 +5,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.example.wikipedia.databinding.ActivityMainBinding
+import com.example.wikipedia.fragment.Fragment_Explore
+import com.example.wikipedia.fragment.Fragment_Profile
+import com.example.wikipedia.fragment.Fragment_Trend
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -58,5 +62,38 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+        binding.bottomNavmain.setOnItemSelectedListener {
+
+            when(it.itemId){
+                R.id.menu_Explore ->{
+
+                    replaceFragment(Fragment_Explore())
+
+                }
+                R.id.menu_Trend ->{
+
+                    replaceFragment(Fragment_Trend())
+
+                }
+                R.id.menu_Profile ->{
+
+                    replaceFragment(Fragment_Profile())
+
+                }
+
+
+            }
+            true
+        }
+
     }
+
+    fun replaceFragment(fragment: Fragment){
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace( R.id.frame_main_container , fragment)
+        transaction.commit()
+
+    }
+
 }
