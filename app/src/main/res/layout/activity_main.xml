@@ -33,6 +33,7 @@
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.navigation.NavigationView
+        app:headerLayout="@layout/header_main"
         android:layout_gravity="start"
         android:id="@+id/navmain"
         android:layout_width="wrap_content"
