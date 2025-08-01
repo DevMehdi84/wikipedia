@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.wikipedia.data.ItemPost
 import com.example.wikipedia.databinding.ItemExploreBinding
 
@@ -13,7 +14,19 @@ class ExploreAdapter(val data: ArrayList<ItemPost>) :
 
     inner class ExploreViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 
-        fun bimdViews(itemPost: ItemPost){}
+        fun bimdViews(itemPost: ItemPost) {
+
+            val glide = Glide
+                .with(itemView.context)
+                .load(itemPost.imgUrl)
+                .into(binding.imgExplore)
+
+            binding.txtExploreTitle.text = itemPost.txtTitle
+            binding.txtExploreSubtitle.text = itemPost.txtSubtitle
+            binding.txtExploreDetail.text = itemPost.txtDetail
+
+
+        }
 
     }
 
@@ -30,7 +43,7 @@ class ExploreAdapter(val data: ArrayList<ItemPost>) :
 
     override fun onBindViewHolder(holder: ExploreViewHolder, position: Int) {
 
-        holder.bimdViews( data[position] )
+        holder.bimdViews(data[position])
 
     }
 }
