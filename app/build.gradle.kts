@@ -50,6 +50,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
-    implementation (libs.glide.transformations)
+    implementation (libs.glide.transformations.v430)
 
 }
