@@ -1,5 +1,6 @@
 package com.example.wikipedia.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.wikipedia.MainActivity2
 import com.example.wikipedia.adapter.ExploreAdapter
 import com.example.wikipedia.adapter.ItemEvent
 import com.example.wikipedia.data.ItemPost
 import com.example.wikipedia.databinding.FragmentExploreBinding
+
+const val SEND_DATA_TO_ACTIVITY ="sendData"
 
 class Fragment_Explore : Fragment() , ItemEvent{
     lateinit var binding: FragmentExploreBinding
@@ -127,7 +131,9 @@ class Fragment_Explore : Fragment() , ItemEvent{
 
     override fun onItemClicked(itemPost: ItemPost) {
 
-
+        val intent = Intent(activity , MainActivity2::class.java)
+        intent.putExtra(SEND_DATA_TO_ACTIVITY , itemPost)
+        startActivity(intent)
 
     }
 
