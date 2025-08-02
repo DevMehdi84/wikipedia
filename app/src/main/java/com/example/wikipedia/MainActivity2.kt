@@ -64,6 +64,13 @@ class MainActivity2 : AppCompatActivity() {
         binding.txtMain2Subtitle.text = itemPost.txtSubtitle
         binding.txtMain2Text.text = itemPost.txtDetail
 
+        binding.fabMain2.setOnClickListener {
+
+            val url = "https://en.wikipedia.org/wiki/Main_Page"
+            val intent = Intent(Intent.ACTION_VIEW , Uri.parse(url))
+            startActivity(intent)
+
+        }
 
     }
 
