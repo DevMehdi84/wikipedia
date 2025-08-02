@@ -8,10 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wikipedia.adapter.ExploreAdapter
+import com.example.wikipedia.adapter.ItemEvent
 import com.example.wikipedia.data.ItemPost
 import com.example.wikipedia.databinding.FragmentExploreBinding
 
-class Fragment_Explore : Fragment() {
+class Fragment_Explore : Fragment() , ItemEvent{
     lateinit var binding: FragmentExploreBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -118,10 +119,16 @@ class Fragment_Explore : Fragment() {
         )
 
 
-        val myAdapter = ExploreAdapter(dataExplore)
+        val myAdapter = ExploreAdapter(dataExplore ,this)
 
         binding.recyclerviewExplore.layoutManager  = LinearLayoutManager(context , RecyclerView.VERTICAL , false)
         binding.recyclerviewExplore.adapter = myAdapter
+    }
+
+    override fun onItemClicked(itemPost: ItemPost) {
+
+
+
     }
 
 }
