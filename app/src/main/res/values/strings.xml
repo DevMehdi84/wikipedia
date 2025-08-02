@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <string name="app_name">wikipedia</string>
-        <string name="open_Drawer">open drawer</string>
-        <string name="close_Drawer">close drawer</string>
+    <string name="app_name">wikipedia</string>
+    <string name="open_Drawer">open drawer</string>
+    <string name="close_Drawer">close drawer</string>
 
 </resources>
