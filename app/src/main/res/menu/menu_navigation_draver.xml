@@ -33,7 +33,7 @@
 
 
             <item
-                android:icon="@drawable/ic_wikimedia"
+                android:icon="@drawable/ic_wikipedia"
                 android:id="@+id/openWikipedia"
                 android:title="visit wikimedia"/>
 

@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.wikipedia.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -31,26 +33,43 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.menu_writer ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
 
+                    val dialog = SweetAlertDialog(this , SweetAlertDialog.SUCCESS_TYPE)
+                        dialog.titleText = "alert"
+                        dialog.confirmText = "confirm"
+                        dialog.cancelText = "Cancle"
+                        dialog.contentText = "Wanna be a Writer?"
+                        dialog.setCancelClickListener {
+                        dialog.dismiss()
+                    }
+                        dialog.setConfirmClickListener {
+
+                        dialog.dismiss()
+
+
+                    }
+                    dialog.show()
                 }
 
-                R.id.menu_Translator ->{
 
+                R.id.menu_Translator ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
 
                 }
                 R.id.menu_photographer ->{
-
+                    binding.dravermain.closeDrawer(GravityCompat.START)
                 }
 
                 R.id.menu_video_maker ->{
-
+                    binding.dravermain.closeDrawer(GravityCompat.START)
                 }
 
                 R.id.menu_wikimedia ->{
-
+                    binding.dravermain.closeDrawer(GravityCompat.START)
                 }
                 R.id.openWikipedia ->{
-
+                    binding.dravermain.closeDrawer(GravityCompat.START)
                 }
 
 
