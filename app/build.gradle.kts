@@ -49,5 +49,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     // sweet alert dialog =>
-    implementation ("com.github.f0ris.sweetalert:library:1.5.1")
+    implementation (libs.library)
 }
