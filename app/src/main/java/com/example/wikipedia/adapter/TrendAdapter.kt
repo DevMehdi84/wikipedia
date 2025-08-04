@@ -12,7 +12,7 @@ import com.example.wikipedia.databinding.ItemExploreBinding
 import com.example.wikipedia.databinding.ItemTrendBinding
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 
-class TrendAdapter(val data: ArrayList<ItemPost>) :
+class TrendAdapter(val data: ArrayList<ItemPost> , val itemEvent: ItemEvent) :
     RecyclerView.Adapter<TrendAdapter.TrendViewHolder>() {
     lateinit var binding: ItemTrendBinding
 
@@ -35,6 +35,9 @@ class TrendAdapter(val data: ArrayList<ItemPost>) :
                 .into(binding.imgTrend)
 
 
+         itemView.setOnClickListener {
+             itemEvent.onItemClicked(itemPost)
+         }
 
         }
 
