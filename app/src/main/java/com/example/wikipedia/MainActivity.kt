@@ -1,6 +1,7 @@
 package com.example.wikipedia
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.wikipedia.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -73,6 +75,15 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.menu_video_maker ->{
                     binding.dravermain.closeDrawer(GravityCompat.START)
+
+                    val snackbar = Snackbar
+                        .make( binding.root ,"No Internet!" , Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Retry"){
+                            Toast.makeText(this, "checking network", Toast.LENGTH_SHORT).show()
+                        }
+                        .setActionTextColor( ContextCompat.getColor(this , R.color.md_theme_surface) )
+                        .setBackgroundTint(ContextCompat.getColor(this , R.color.md_theme_primary))
+                        .show()
                 }
 
                 R.id.menu_wikimedia ->{
