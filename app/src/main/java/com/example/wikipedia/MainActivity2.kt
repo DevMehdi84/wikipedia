@@ -58,7 +58,7 @@ class MainActivity2 : AppCompatActivity() {
         val glide = Glide
             .with(this)
             .load(itemPost.imgUrl)
-            .load(binding.imgMain2)
+            .into(binding.imgMain2)
 
         binding.txtMain2Title.text = itemPost.txtTitle
         binding.txtMain2Subtitle.text = itemPost.txtSubtitle
