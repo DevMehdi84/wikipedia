@@ -51,8 +51,8 @@ dependencies {
     // sweet alert dialog =>
     implementation (libs.library)
 
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
-    implementation ("jp.wasabeef:glide-transformations:4.3.0")
 
-
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
+    implementation (libs.glide.transformations)
 }
