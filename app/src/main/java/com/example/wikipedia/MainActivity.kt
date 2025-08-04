@@ -1,5 +1,6 @@
 package com.example.wikipedia
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.menu_Translator ->{
                     binding.dravermain.closeDrawer(GravityCompat.START)
+
+                    //Open an activity
+                    val intent = Intent( this, translateActivity::class.java)
+                    startActivity(intent)
 
                 }
                 R.id.menu_photographer ->{
