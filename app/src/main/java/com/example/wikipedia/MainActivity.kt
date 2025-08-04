@@ -2,6 +2,8 @@ package com.example.wikipedia
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -109,5 +111,23 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
         //check menu item off
         binding.navmain.menu.getItem(1).isChecked = false
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+        menuInflater.inflate(R.menu.menu_main , menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+       when(item.itemId){
+           R.id.menu_exit ->{
+               onBackPressed()
+           }
+       }
+
+        return true
     }
 }
