@@ -50,4 +50,9 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     // sweet alert dialog =>
     implementation (libs.library)
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("jp.wasabeef:glide-transformations:4.3.0")
+
+
 }

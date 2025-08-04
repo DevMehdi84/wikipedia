@@ -58,7 +58,17 @@ class MainActivity : AppCompatActivity() {
 
                 }
                 R.id.menu_photographer ->{
+
+                    //load fragment
+                    val transaction = supportFragmentManager.beginTransaction()
+                    transaction.add(R.id.Frame_main_container , Fragment_Photographer())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+
+                    //close drawer
                     binding.dravermain.closeDrawer(GravityCompat.START)
+
+
                 }
 
                 R.id.menu_video_maker ->{
@@ -77,5 +87,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        //check menu item off
+        binding.navmain.menu.getItem(1).isChecked = false
     }
 }
