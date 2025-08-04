@@ -1,6 +1,7 @@
 package com.example.wikipedia
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -95,9 +96,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.menu_wikimedia ->{
                     binding.dravermain.closeDrawer(GravityCompat.START)
+
+                    openWebsite("https://www.wikimedia.org/")
                 }
                 R.id.openWikipedia ->{
                     binding.dravermain.closeDrawer(GravityCompat.START)
+                   openWebsite("https://en.wikipedia.org/wiki/Main_Page")
                 }
 
 
@@ -129,5 +133,12 @@ class MainActivity : AppCompatActivity() {
        }
 
         return true
+    }
+
+    fun openWebsite(url : String){
+
+        val intent = Intent(Intent.ACTION_VIEW , Uri.parse(url))
+        startActivity(intent)
+
     }
 }
