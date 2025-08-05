@@ -7,6 +7,7 @@
         android:title="be a writer"/>
 
     <item
+        android:checkable="true"
         android:icon="@drawable/ic_photographer"
         android:id="@+id/menu_photographer"
         android:title="be a photographer"/>
@@ -29,13 +30,13 @@
             <item
                 android:icon="@drawable/ic_wikimedia"
                 android:id="@+id/menu_wikimedia"
-                android:title="visit wikipedia"/>
+                android:title="visit wikimedia"/>
 
 
             <item
-                android:icon="@drawable/ic_wikimedia"
+                android:icon="@drawable/ic_wikipedia"
                 android:id="@+id/openWikipedia"
-                android:title="visit wikimedia"/>
+                android:title="visit wikipedia"/>
 
         </menu>
 

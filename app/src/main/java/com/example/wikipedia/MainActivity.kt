@@ -1,15 +1,23 @@
 package com.example.wikipedia
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.core.view.GravityCompat
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.wikipedia.databinding.ActivityMainBinding
 import com.example.wikipedia.fragment.Fragment_Explore
 import com.example.wikipedia.fragment.Fragment_Profile
 import com.example.wikipedia.fragment.Fragment_Trend
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -35,33 +43,75 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
 
                 R.id.menu_writer ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
 
+                    val dialog = SweetAlertDialog(this , SweetAlertDialog.SUCCESS_TYPE)
+                        dialog.titleText = "alert"
+                        dialog.confirmText = "confirm"
+                        dialog.cancelText = "Cancle"
+                        dialog.contentText = "Wanna be a Writer?"
+                        dialog.setCancelClickListener {
+                        dialog.dismiss()
+                    }
+                        dialog.setConfirmClickListener {
+
+                        dialog.dismiss()
+
+
+                    }
+                    dialog.show()
                 }
 
-                R.id.menu_Translator ->{
 
+                R.id.menu_Translator ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
+
+                    //Open an activity
+                    val intent = Intent( this, translateActivity::class.java)
+                    startActivity(intent)
 
                 }
                 R.id.menu_photographer ->{
 
+                    //load fragment
+                    val transaction = supportFragmentManager.beginTransaction()
+                    transaction.replace(R.id.frame_main_container , Fragment_Photographer())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+
+                    //close drawer
+                    binding.dravermain.closeDrawer(GravityCompat.START)
+
+
                 }
 
                 R.id.menu_video_maker ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
 
+                    val snackbar = Snackbar
+                        .make( binding.root ,"No Internet!" , Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Retry"){
+                            Toast.makeText(this, "checking network", Toast.LENGTH_SHORT).show()
+                        }
+                        .setActionTextColor( ContextCompat.getColor(this , R.color.md_theme_surface) )
+                        .setBackgroundTint(ContextCompat.getColor(this , R.color.md_theme_primary))
+                        .show()
                 }
 
                 R.id.menu_wikimedia ->{
+                    binding.dravermain.closeDrawer(GravityCompat.START)
 
+                    openWebsite("https://www.wikimedia.org/")
                 }
                 R.id.openWikipedia ->{
-
+                    binding.dravermain.closeDrawer(GravityCompat.START)
+                   openWebsite("https://en.wikipedia.org/wiki/Main_Page")
                 }
 
 
             }
             true
         }
-
 
         firtRun()
 
@@ -88,10 +138,40 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
-//        Avoid duplicate selection in bottom navigation
+        //        Avoid duplicate selection in bottom navigation
         binding.bottomNavmain.setOnItemReselectedListener {}
 
+
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        //check menu item off
+        binding.navmain.menu.getItem(1).isChecked = false
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+
+        menuInflater.inflate(R.menu.menu_main , menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+       when(item.itemId){
+           R.id.menu_exit ->{
+               onBackPressed()
+           }
+       }
+
+        return true
+    }
+
+    fun openWebsite(url : String){
+
+        val intent = Intent(Intent.ACTION_VIEW , Uri.parse(url))
+        startActivity(intent)
     }
 
     fun replaceFragment(fragment: Fragment){

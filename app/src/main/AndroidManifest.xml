@@ -14,7 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        tools:replace="android:icon"
         tools:targetApi="31">
+        <activity
+            android:name=".translateActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />
