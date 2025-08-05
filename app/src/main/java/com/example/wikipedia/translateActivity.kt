@@ -1,6 +1,7 @@
 package com.example.wikipedia
 
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -20,6 +21,8 @@ class translateActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbartanslate)
         window.statusBarColor = ContextCompat.getColor(this, R.color.md_theme_primary)
 
+        supportActionBar!!.setHomeButtonEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val glide =   Glide
             .with(this)
@@ -28,6 +31,15 @@ class translateActivity : AppCompatActivity() {
             .into(binding.imgTranslate)
 
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if (item.itemId == android.R.id.home){
+            onBackPressed()
+        }
+
+        return true
+    }
+
 
 
 }
